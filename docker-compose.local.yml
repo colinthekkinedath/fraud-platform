@@ -64,3 +64,19 @@ services:
   grafana:
     image: grafana/grafana:latest
     ports: ["3000:3000"]
+  producer:
+    build:
+      context: ./services/producer
+    image: fraud/producer:dev
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_BOOTSTRAP: kafka:29092          # internal listener
+      TARGET_TPS: "1000"                    # raise target now
+      RNG_SEED: "42"
+    expose:
+      - "8001"                               # metrics port (internal)
+    # (Optional) map port if you want to curl metrics from host:
+    # ports:
+    #   - "8001:8001"
+    restart: unless-stopped
