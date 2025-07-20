@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "name": "Transaction",
+  "namespace": "fraud",
+  "fields": [
+    {"name": "transaction_id", "type": "string"},
+    {"name": "user_id", "type": "string"},
+    {"name": "merchant_id", "type": "string"},
+    {"name": "amount", "type": "double"},
+    {"name": "currency", "type": {"type":"enum","name":"Currency","symbols":["USD"]}},
+    {"name": "timestamp", "type": "long"},
+    {"name": "device_id", "type": "string"},
+    {"name": "location_lat", "type": "double"},
+    {"name": "location_lon", "type": "double"},
+    {"name": "channel", "type": {"type":"enum","name":"Channel","symbols":["card_present","ecom","atm"]}},
+    {"name": "is_fraud_label", "type": "boolean"},
+    {"name": "schema_version", "type": "int", "default": 1}
+  ]
+}
