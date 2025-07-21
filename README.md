@@ -4,14 +4,19 @@
 
 ```mermaid
 graph TD
-    A[GitHub] --> B[GitHub Actions CI]
-    B --> C[Docker images]
-    C --> D[Kubernetes Cluster]
-    D --> E[Kafka]
-    D --> F[Redis]
-    E --> G[Fraud API]
-    G --> H[Feast]
-    H --> I[Prometheus]
-    I --> J[Grafana]
-    J --> K[Alerting]
+    A[GitHub → GitHub Actions CI] --> B[Docker images]
+    B --> C[Kubernetes Cluster]
+
+    subgraph C[Kubernetes Cluster]
+        C1[Kafka]
+        C2[Redis]
+        C3[Fraud API]
+        C4[Feast]
+    end
+
+    C3 --> D[Ingress LB]
+    C4 --> E[Prometheus]
+
+    D --> F[Grafana & Alerting]
+    E --> F
 ```
