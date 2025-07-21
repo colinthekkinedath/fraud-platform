@@ -5,8 +5,8 @@
     "tasks.max": "1",
     "topics": "transactions",
 
-    "aws.access.key.id": "admin",
-    "aws.secret.access.key": "password123",
+    "aws.access.key.id": "connect_sink",
+    "aws.secret.access.key": "Sup3rS3cret!",
     "aws.s3.bucket.name": "fraud-raw",
     "aws.region": "us-east-1",
     "aws.endpoint": "http://minio:9000",
@@ -19,7 +19,7 @@
     "timestamp.extractor": "record",
     "timestamp.field": "timestamp",
 
-    "file.max.records": "50",
+    "file.max.records": "1",
     "rotate.interval.ms": "15000",
 
     "behavior.on.error": "fail",
