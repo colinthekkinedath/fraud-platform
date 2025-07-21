@@ -53,7 +53,7 @@ graph TD
 
 1. **Clone & Setup**
    ```bash
-   git clone https://github.com/your-org/fraud-platform
+   git clone https://github.com/colinthekkinedath/fraud-platform
    cd fraud-platform
    ```
 
