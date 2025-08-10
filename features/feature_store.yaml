@@ -1,0 +1,9 @@
+project: fraud
+registry: data/feast/registry.db
+provider: local
+online_store:
+  type: redis
+  connection_string: "redis:6379,db=0"
+offline_store:
+  type: file
+  path: "s3://fraud-features/offline"
