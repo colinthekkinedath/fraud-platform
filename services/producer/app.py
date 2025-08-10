@@ -1,5 +1,6 @@
 # services/producer/app.py
 import os, time, uuid, random, json
+import mmh3
 from confluent_kafka import Producer
 from prometheus_client import start_http_server, Counter, Histogram
 
@@ -43,9 +44,19 @@ def main():
     while True:
         payload = gen()
         start = time.perf_counter()
+        
+        # A/B test variant assignment (sticky 10% canary)
+        variant = "canary" if (mmh3.hash(payload["user_id"]) % 10 == 0) else "control"
+        headers = [("ab_variant".encode(), variant.encode())]
+        
+        # Optional: Add fraud score if available (placeholder for now)
+        # fraud_score = 0.5  # Placeholder - would come from model
+        # headers.append(("fraud_score", f"{fraud_score:.4f}".encode()))
+        
         p.produce("transactions",
                   key=payload["user_id"],
                   value=json.dumps(payload),
+                  headers=headers,
                   callback=delivery)
         p.poll(0)
         send_latency.observe(time.perf_counter() - start)
