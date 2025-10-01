@@ -1,7 +1,6 @@
 # 🛡️ Real-Time Fraud-Detection Platform
 
 End-to-end template for streaming ingest → feature engineering → model training/serving → monitoring, built with **Kafka / Flink / Feast / FastAPI / Kubernetes**.  
-Structured to start locally with Docker, then lift the same manifests to any K8s cluster.
 
 ---
 
@@ -123,16 +122,4 @@ graph TD
 | Error Rate | < 0.1% |
 | Availability | 99.9% |
 
-## Contributing
 
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/xyz`)
-3. Commit changes (`git commit -am 'Add feature xyz'`)
-4. Push branch (`git push origin feature/xyz`)
-5. Open Pull Request
-
----
-
-## License
-
-Apache 2.0 - See [LICENSE](LICENSE) for details.
