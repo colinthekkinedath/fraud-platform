@@ -1,10 +1,10 @@
-# 🛡️ Real-Time Fraud-Detection Platform
+# Real-Time Fraud-Detection Platform
 
-End-to-end template for streaming ingest → feature engineering → model training/serving → monitoring, built with **Kafka / Flink / Feast / FastAPI / Kubernetes**.  
+End-to-end template for streaming ingest → feature engineering → model training/serving → monitoring, built with **Kafka  / Feast / FastAPI / Kubernetes**.  
 
 ---
 
-## 📌 Table of Contents
+## Table of Contents
 1. [At-a-Glance](#at-a-glance)
 2. [Architecture](#architecture)
 3. [Getting Started](#getting-started)
